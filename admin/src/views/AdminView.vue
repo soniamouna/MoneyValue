@@ -1,11 +1,16 @@
 <script>
+import TabAdmin from '../components/admin/TabAdmin.vue';
 export default {
-
+    components: { TabAdmin }
 }
 </script>
 
 <template>
-    <h1>Admin</h1>
+<div >
+    <TabAdmin/>
+</div>
+
+    
 </template>
 
 
