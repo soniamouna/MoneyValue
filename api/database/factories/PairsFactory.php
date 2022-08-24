@@ -17,7 +17,10 @@ class PairsFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'from'=>$this->faker->currencyCode(),
+            'to'=>$this->faker->currencyCode(),
+            'count'=>0,
+            'rate'=>$this->faker->randomFloat($nbMaxDecimals = 2, $min = 0),
         ];
     }
 }
