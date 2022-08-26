@@ -50,9 +50,11 @@ class PairsController extends Controller
      * @param  \App\Models\Pairs  $pairs
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pairs $pairs)
+    public function update(Request $request, $id)
     {
-        //
+        $pairs = Pairs::find($id);
+        $pairs->update($request->all());
+        return response()->json($pairs);
     }
 
     /**

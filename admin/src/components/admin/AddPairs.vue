@@ -63,7 +63,7 @@ export default {
             </div>
             <div class="col-lg-3 m-auto">
                 <button type="submit" class="btn btn-primary"
-                    @click.prevent="addPairs(this.currencyFromId, this.currencyToId, this.currencyRate)">Ajouter</button>
+                    @click="addPairs(this.currencyFromId, this.currencyToId, this.currencyRate)">Ajouter</button>
             </div>
 
         </div>
