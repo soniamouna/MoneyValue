@@ -18,7 +18,7 @@ export default {
 
     methods: {
 
-        addPairs(currencyFromId, currencyToId, currencyRate) {
+        addPairs() {
             axios.post("http://127.0.0.1:8000/api/pairs",
                 {
                     currency_from_id: this.currencyFromId,
@@ -63,7 +63,7 @@ export default {
             </div>
             <div class="col-lg-3 m-auto">
                 <button type="submit" class="btn btn-primary"
-                    @click="addPairs(this.currencyFromId, this.currencyToId, this.currencyRate)">Ajouter</button>
+                    @click="addPairs()">Ajouter</button>
             </div>
 
         </div>
