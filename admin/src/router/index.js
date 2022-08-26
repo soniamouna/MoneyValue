@@ -8,11 +8,6 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "converter",
-      component: ConverterView,
-    },
-    {
-      path: "/admin",
       name: "admin",
       component: AdminView,
     },
