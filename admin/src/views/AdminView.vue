@@ -2,8 +2,9 @@
 import TabAdmin from '../components/admin/TabAdmin.vue';
 import axios from 'axios';
 import AddPairs from '../components/admin/AddPairs.vue';
+import AddCurrency from '../components/admin/AddCurrency.vue';
 export default {
-    components: { TabAdmin, AddPairs },
+    components: { TabAdmin, AddPairs, AddCurrency },
     data() {
         return {
             pairs: [],
@@ -32,7 +33,8 @@ export default {
 
 <template>
 <div class="m-auto">
-    <AddPairs :pairs="this.pairs" :currencies="this.currencies"/>
+    <AddCurrency/>
+    <AddPairs :currencies="this.currencies"/>
     <TabAdmin :pairs="this.pairs"/>
 </div>
 

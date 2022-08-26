@@ -27,7 +27,8 @@ class CurrencyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $currency = Currency::create($request->all());
+        return response()->json($currency);
     }
 
     /**
