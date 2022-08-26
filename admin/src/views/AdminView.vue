@@ -6,7 +6,8 @@ export default {
 </script>
 
 <template>
-<div >
+<div>
+    
     <TabAdmin/>
 </div>
 

@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('pairs', function (Blueprint $table) {
             $table->id();
-            $table->string('from',3);
-            $table->string('to',3);
-            $table->integer('count')->default(0);
-            $table->float('rate', 8,2);
+            $table->unsignedBigInteger('currency_from_id')->nullable();
+            $table->unsignedBigInteger('currency_to_id')->nullable();
+            $table->float('rate');
+            $table->foreign('currency_from_id')->nullable()->references('id')->on('currencies')->onDelete('cascade');
+            $table->foreign('currency_to_id')->nullable()->references('id')->on('currencies')->onDelete('cascade');
             $table->timestamps();
         });
     }

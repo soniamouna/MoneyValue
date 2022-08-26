@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Conversion;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Pairs;
 
-class PairsSeeder extends Seeder
+class ConversionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class PairsSeeder extends Seeder
      */
     public function run()
     {
-        Pairs::factory(10)->create();
+        Conversion::factory(10)->create();
     }
 }
