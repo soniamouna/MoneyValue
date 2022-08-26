@@ -28,7 +28,8 @@ class PairsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pairs = Pairs::create($request->all());
+        return response()->json($pairs);
     }
 
     /**
@@ -60,8 +61,13 @@ class PairsController extends Controller
      * @param  \App\Models\Pairs  $pairs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pairs $pairs)
+    public function destroy($id)
     {
-        //
+        $pairs = Pairs::find($id);
+        // On supprime l'utilisateur
+        $pairs->delete();
+
+        // On retourne la réponse JSON
+        return response()->json(['message'=>'supp reussi']);
     }
 }
