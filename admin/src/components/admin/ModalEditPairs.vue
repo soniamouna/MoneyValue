@@ -2,6 +2,8 @@
 import axios from 'axios'
 
 export default {
+    name: "EditPairsForm",
+   
     props: {
         pairsEdit: {
             type: Array,
