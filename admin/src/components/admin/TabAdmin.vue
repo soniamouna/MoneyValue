@@ -27,15 +27,7 @@ export default {
           <button type="button"  class="btn btn-danger">Supprimer</button>
         </td>
       </tr>
-      <!-- <tr>
-                    <th scope="row">USD -> EUR </th>
-                    <td>1.1</td>
-                    <td>0</td>
-                    <td>
-                        <button type="button" class="btn btn-primary">Modifier</button>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
-                    </td>
-                </tr> -->
+      
     </tbody>
   </table>
 
