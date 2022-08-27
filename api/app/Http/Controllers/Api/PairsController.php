@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Pairs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PairsController extends Controller
 {
@@ -16,7 +17,7 @@ class PairsController extends Controller
     public function index()
     {
         $pairs = Pairs::with('currencyFrom', 'currencyTo')->get();
-        if(!$pairs) return response()->json(['error' => 'Aucune paire disponible'], 404);
+        if(!$pairs) return response()->json(['error' => 'No pairs data found'], 404);
         return response()->json($pairs, 200);
     }
 
@@ -28,6 +29,14 @@ class PairsController extends Controller
      */
     public function store(Request $request)
     {
+        $validate = Validator::make($request->all(), [
+            'currency_from_id' => 'required|integer',
+            'currency_to_id' => 'required|integer',
+            'rate' => 'required|min:0',
+        ]);
+        if($validate->fails()){
+            return response()->json(['message' => 'Validation failed', 'errors' => $validate->errors()], 422);
+        }
         $pairs = Pairs::create($request->all());
         return response()->json($pairs);
     }
