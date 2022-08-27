@@ -23,10 +23,10 @@ export default {
 
     validations() {
         return {
-            newCurrency: { 
-                required:helpers.withMessage('Veuillez sélectionner une devise', required), 
-                alpha:helpers.withMessage('Veuillez saisir des lettres', alpha),
-                maxLength:helpers.withMessage('Veuillez saisir une devise à 3 lettres',  maxLength(3))  
+            newCurrency: {
+                required: helpers.withMessage('Veuillez remplir ce champs une devise', required),
+                alpha: helpers.withMessage('Veuillez saisir des lettres', alpha),
+                maxLength: helpers.withMessage('Veuillez saisir une devise à 3 lettres', maxLength(3))
             },
         }
     },
@@ -35,19 +35,17 @@ export default {
 
         async addCurrency(event) {
             this.v$.$validate();
-            if (this.v$.$error==true) {
+            if (this.v$.$error == true) {
                 event.preventDefault();
             }else{
-               await axios.post("http://127.0.0.1:8000/api/currencies",
+            await axios.post("http://127.0.0.1:8000/api/currencies",
                 {
-                    name: this.newCurrency.toUpperCase(),
+                    name: this.newCurrency,
                 })
                 .then(response => console.log(response))
-                .catch(err => console.log(error)); 
+                .catch(err => console.log(error));
+
             }
-            
-            
-            
         }
     }
 
@@ -60,7 +58,7 @@ export default {
 <template>
     <form class="mb-2 m-auto">
         <div class="  row col-lg-12">
-            
+
             <div class="mb-3 col-lg-6">
                 <label for="rate">Nouvelle devise</label>
                 <input type="text" class="form-control" placeholder="ex : EUR" v-model="newCurrency">
@@ -81,7 +79,7 @@ export default {
 
 
 <style>
-.error{
-    color:red
+.error {
+    color: red
 }
 </style>

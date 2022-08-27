@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
 Route::resource('pairs', PairsController::class);
 Route::resource('currencies', CurrencyController::class);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

@@ -35,11 +35,9 @@ export default {
         return {
             currencyFromId: { 
                 required:helpers.withMessage('Veuillez sélectionner une devise', required), 
-                maxLength:helpers.withMessage('Veuillez saisir une devise à 3 lettres',  maxLength(3))  
             },
             currencyToId: { 
                 required:helpers.withMessage('Veuillez sélectionner une devise', required), 
-                maxLength:helpers.withMessage('Veuillez saisir une devise à 3 lettres',  maxLength(3))  
             },
             currencyRate: { 
                 required:helpers.withMessage('Veuillez saisir un taux de change', required), 
