@@ -8,7 +8,7 @@ export default {
             default: () => []
         }
     },
-    components: { modalEdit: ModalEditPairs },
+    components: { ModalEditPairs },
     data() {
         return {
             pairsEdit: [],
@@ -19,7 +19,6 @@ export default {
         async deletePairs(id) {
             await axios.delete(`http://127.0.0.1:8000/api/pairs/${id}`)
                 .then((response) => {
-                    this.pairs.splice(id - 1, 1);
                     window.location.reload();
                 })
                 .catch((error) => {
@@ -33,7 +32,7 @@ export default {
             this.pairsEdit = pair;
         }
     },
-    components: { ModalEditPairs }
+   
 }
 </script>
 
