@@ -59,8 +59,8 @@ export default {
                     currency_to_id: this.currencyToId,
                     rate: this.currencyRate
                 })
-                .then(response => console.log(response))
-                .catch(err => console.log(error)); 
+                .then(response => window.location.reload())
+                .catch(error => console.log(error)); 
             }
             
             
@@ -75,7 +75,7 @@ export default {
 </script>
 
 <template>
-    <form class="mb-2 m-auto">
+    <form class="mb-2 m-auto" @submit.prevent="addPairs">
         <div class="  row col-lg-12">
             <div class="mb-3 col-lg-3">
                 <label for="currencyEntry">Devise d'entrée</label>
@@ -107,7 +107,7 @@ export default {
                 </div>
             </div>
             <div class="col-lg-3 m-auto">
-                <button type="submit" class="btn btn-primary" @click="addPairs">Ajouter</button>
+                <button type="submit" class="btn btn-primary" >Ajouter</button>
             </div>
 
         </div>
