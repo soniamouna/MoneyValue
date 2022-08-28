@@ -81,4 +81,6 @@ class PairsController extends Controller
         // On retourne la réponse JSON
         return response()->json(['message'=>'supp reussi']);
     }
+
+    
 }

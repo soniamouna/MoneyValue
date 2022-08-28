@@ -27,7 +27,6 @@ export default {
             currencyFromId: "",
             currencyToId: "",
             currencyRate: "",
-            disabled: ""
         }
     },
 
@@ -88,7 +87,6 @@ export default {
                 <div class="error" v-if="v$.currencyFromId.$error">
                     {{ v$.currencyFromId.$errors[0].$message }}
                 </div>
-                <!-- <input type="text" class="form-control" placeholder="ex : EUR" name="from" v-model="from"> -->
             </div>
             <div class="mb-3 col-lg-3">
                 <label for="currencyExit">Devise de sortie</label>

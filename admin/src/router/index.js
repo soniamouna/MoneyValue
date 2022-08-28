@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import ConverterView from "../views/ConverterView.vue";
 import AdminView from "../views/AdminView.vue";
 
 
