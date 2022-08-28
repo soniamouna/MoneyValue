@@ -79,7 +79,7 @@ class PairsController extends Controller
         $pairs->delete();
 
         // On retourne la réponse JSON
-        return response()->json(['message'=>'supp reussi']);
+        return response()->json(['message'=>'Delete success']);
     }
 
     
