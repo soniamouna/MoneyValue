@@ -36,9 +36,9 @@ class ConversionController extends Controller
         $amount = $request->query('amount') ?? 1;
         $reverse=$request->query('reverse');
 
-        //Si les paires n'existent pas, renvoyer un message d'erreur 
-        if (!$currencyFrom || !$currencyTo) return response()->json(['error' => '`from` or `to` parameters must be valid currency codes'], 404);
-        //Si les paires sont identiques, renvoyer un message d'erreur 
+        //Si les devises n'existent pas, renvoyer un message d'erreur 
+        if (!$currencyFrom || !$currencyTo) return response()->json(['error' => '`from` or `to` parameters must be existing currency'], 404);
+        //Si les devises sont identiques, renvoyer un message d'erreur 
         if ($from == $to) return response()->json(['error' => '`from` and `to` cannot be the same'], 400);
 
         //Récupérer la paire en fonction des devises données
@@ -51,20 +51,20 @@ class ConversionController extends Controller
         if($reverse == true) {
             $converted = $amount * 1/$pairs->rate;
             $data = [
-                'amount_currency_from' => $amount,
-                'code_currency_from' => $request->query('to'),
-                'code_currency_to' => $request->query('from'),
-                'amount_currency_to' => $converted,
+                'amount' => $amount,
+                'currencyFrom' => $request->query('to'),
+                'currencyTo' => $request->query('from'),
+                'amountConverted' => $converted,
                 
             ];
         }else {
             $converted = $amount * $pairs->rate;
 
             $data = [
-                'amount_currency_from' => $amount,
-                'code_currency_from' => $request->query('from'),
-                'code_currency_to' => $request->query('to'),
-                'amount_currency_to' => $converted,
+                'amount' => $amount,
+                'currencyFrom' => $request->query('from'),
+                'currencyTo' => $request->query('to'),
+                'amountConverted' => $converted,
                 
             ];
         }

@@ -42,7 +42,7 @@ export default {
                 {
                     name: this.newCurrency,
                 })
-                .then(response => console.log(response))
+                .then(response => window.location.reload())
                 .catch(err => console.log(error));
 
             }
@@ -67,7 +67,7 @@ export default {
                 </div>
             </div>
             <div class="col-lg-6 m-auto">
-                <button type="submit" class="btn btn-primary" @click="addCurrency">Ajouter</button>
+                <button type="submit" class="btn btn-primary" @click.prevent="addCurrency">Ajouter</button>
             </div>
 
         </div>

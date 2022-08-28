@@ -22,7 +22,7 @@ export default {
             await axios.put('http://127.0.0.1:8000/api/pairs/' + id,
                 this.pairsEdit)
                 .then((response) => {
-                    console.log(response)
+                    window.location.reload();
                 })
                 .catch(err => console.log(err))
 

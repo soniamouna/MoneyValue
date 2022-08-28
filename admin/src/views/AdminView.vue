@@ -9,12 +9,12 @@ export default {
         return {
             pairs: [],
             currencies: [],
+            token:localStorage.getItem('token')
         }
     },
     mounted() {
     axios.get('http://127.0.0.1:8000/api/pairs')
       .then((response) => {
-        
         this.pairs = response.data;
       })
       .catch(err => console.log(err))
@@ -33,9 +33,10 @@ export default {
 
 <template>
 <div class="m-auto">
-    <AddCurrency/>
-    <AddPairs :currencies="this.currencies"/>
-    <TabAdmin :pairs="this.pairs"/>
+  
+      <AddCurrency/>
+      <AddPairs :currencies="this.currencies"/>
+      <TabAdmin :pairs="this.pairs"/>
 </div>
 
     
